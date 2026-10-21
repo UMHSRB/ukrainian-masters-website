@@ -200,7 +200,7 @@
 </script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Zilla+Slab:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/style.css">
+<link rel="stylesheet" href="/style.css?v=20261021b">
 </head>
 <body>
 
@@ -341,6 +341,7 @@
               <input id="calc-w-hours" type="number" min="1" step="0.5" value="4">
             </div>
             <div id="calc-other" hidden><p class="calc-sub">Tell us what you need and we will send a quote.</p></div>
+            <button type="button" class="form-submit calc-go" id="calc-go">Calculate</button>
           </div>
           <div class="calc-out">
             <div class="calc-label">Estimate</div>
@@ -515,6 +516,6 @@
     revealEls.forEach(function(el){ el.classList.add('is-visible'); });
   }
 </script>
-<script src="/calculator.js" defer></script>
+<script src="/calculator.js?v=20261021b" defer></script>
 </body>
 </html>
