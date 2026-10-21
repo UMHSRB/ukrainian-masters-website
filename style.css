@@ -348,3 +348,20 @@
   .pill-link:hover{border-color:var(--brass-dim);}
   .page-hero .btn-primary,.page-hero .btn-ghost,.contact .btn-primary,.contact .btn-ghost{text-decoration:none;}
   @media (max-width:860px){ .two{grid-template-columns:1fr; gap:30px;} .page-hero h1{font-size:32px;} }
+
+  /* Price calculator */
+  .calc{margin-top:40px; background:#fff; border:1px solid var(--line); border-radius:6px; padding:28px;}
+  .calc h3{font-size:24px; margin-bottom:6px;}
+  .calc-sub{color:var(--slate); font-size:14.5px; margin:0 0 18px;}
+  .calc-grid{display:grid; grid-template-columns:1fr 1fr; gap:36px; align-items:start;}
+  .calc-inputs label{display:block; font-family:'IBM Plex Mono',monospace; font-size:11px; text-transform:uppercase; letter-spacing:.08em; color:var(--slate); margin:14px 0 6px;}
+  .calc-inputs select,.calc-inputs input{width:100%; padding:12px 14px; font-size:15px; font-family:'IBM Plex Sans',sans-serif; border:1px solid var(--line); border-radius:4px; background:var(--paper); color:var(--charcoal);}
+  .calc-inputs [hidden]{display:none;}
+  .calc-out{background:var(--navy); color:var(--paper); border-radius:6px; padding:24px;}
+  .calc-label{font-family:'IBM Plex Mono',monospace; font-size:11px; letter-spacing:.1em; text-transform:uppercase; color:#9FB0CC;}
+  .calc-result{font-family:'Zilla Slab',serif; font-weight:700; font-size:40px; line-height:1.1; margin:8px 0 8px; color:var(--brass);}
+  .calc-note{color:#C7D0E0; font-size:14px; margin:0 0 18px;}
+  .calc-actions{display:flex; flex-wrap:wrap; gap:10px;}
+  .calc-actions .btn-primary,.calc-actions .btn-ghost{font-size:14px; padding:11px 18px; cursor:pointer; font-family:'IBM Plex Sans',sans-serif; background-clip:padding-box;}
+  .calc-actions button.btn-ghost{background:transparent;}
+  @media (max-width:760px){ .calc-grid{grid-template-columns:1fr; gap:22px;} .calc{padding:20px;} .calc-result{font-size:34px;} }
