@@ -13,6 +13,13 @@
     if(a.closest&&a.closest('a.svc')) send('service_card_click',{link_url:href});
   },true);
   document.addEventListener('submit',function(e){
-    var f=e.target; if(f&&f.classList&&f.classList.contains('estimate-form')){ var s=document.getElementById('service'); send('generate_lead',{service:s?s.value:''}); }
+    var f=e.target; if(!(f&&f.classList&&f.classList.contains('estimate-form'))) return;
+    var s=document.getElementById('service'); send('form_submit',{service:s?s.value:''});
+    if(!window.fetch||!window.FormData) return;
+    e.preventDefault();
+    var btn=f.querySelector('button[type=submit],input[type=submit]'); if(btn) btn.disabled=true;
+    fetch(f.action,{method:'POST',body:new FormData(f),headers:{'Accept':'application/json'}})
+      .then(function(r){ if(r.ok){ location.href='/thank-you/'; } else { f.submit(); } })
+      .catch(function(){ f.submit(); });
   },true);
 })();
