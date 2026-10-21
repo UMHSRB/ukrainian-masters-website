@@ -382,3 +382,5 @@
   .review-links{margin:6px 0 0; font-size:14px; color:#9FB0CC;}
   .review-links a{color:var(--brass);}
   .brand-logo{width:58px; height:58px; border-radius:50%; flex-shrink:0; display:block;}
+  a.area-pill{text-decoration:none;}
+  a.area-pill:hover{border-color:var(--brass-dim); color:var(--charcoal);}
