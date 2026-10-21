@@ -311,10 +311,18 @@
             </select>
 
             <div id="calc-furniture">
-              <label for="calc-f-workers">Workers</label>
-              <select id="calc-f-workers"><option value="1">1 worker</option><option value="2">2 workers</option></select>
-              <label for="calc-f-hours">Hours (2-hour minimum)</label>
-              <input id="calc-f-hours" type="number" min="2" step="0.5" value="2">
+              <label for="calc-f-mode">Pricing</label>
+              <select id="calc-f-mode"><option value="item">By item</option><option value="hour">By the hour</option></select>
+              <div id="calc-f-items">
+                <label>How many of each?</label>
+                <div class="calc-items"><div class="calc-item"><span>Dining chair<small>$25–$45</small></span><input type="number" min="0" step="1" value="0" data-lo="25" data-hi="45" data-plus="0" aria-label="Quantity: Dining chair"></div><div class="calc-item"><span>Nightstand / small side table<small>$50–$75</small></span><input type="number" min="0" step="1" value="0" data-lo="50" data-hi="75" data-plus="0" aria-label="Quantity: Nightstand / small side table"></div><div class="calc-item"><span>Coffee table<small>$60–$100</small></span><input type="number" min="0" step="1" value="0" data-lo="60" data-hi="100" data-plus="0" aria-label="Quantity: Coffee table"></div><div class="calc-item"><span>Office chair<small>$40–$70</small></span><input type="number" min="0" step="1" value="0" data-lo="40" data-hi="70" data-plus="0" aria-label="Quantity: Office chair"></div><div class="calc-item"><span>Standard bed frame<small>$90–$160</small></span><input type="number" min="0" step="1" value="0" data-lo="90" data-hi="160" data-plus="0" aria-label="Quantity: Standard bed frame"></div><div class="calc-item"><span>Desk<small>$90–$180</small></span><input type="number" min="0" step="1" value="0" data-lo="90" data-hi="180" data-plus="0" aria-label="Quantity: Desk"></div><div class="calc-item"><span>Dresser, 4–6 drawers<small>$120–$220</small></span><input type="number" min="0" step="1" value="0" data-lo="120" data-hi="220" data-plus="0" aria-label="Quantity: Dresser, 4–6 drawers"></div><div class="calc-item"><span>Bunk bed<small>$180–$350</small></span><input type="number" min="0" step="1" value="0" data-lo="180" data-hi="350" data-plus="0" aria-label="Quantity: Bunk bed"></div><div class="calc-item"><span>IKEA PAX wardrobe<small>$200–$450+</small></span><input type="number" min="0" step="1" value="0" data-lo="200" data-hi="450" data-plus="1" aria-label="Quantity: IKEA PAX wardrobe"></div><div class="calc-item"><span>Patio furniture set<small>$150–$300</small></span><input type="number" min="0" step="1" value="0" data-lo="150" data-hi="300" data-plus="0" aria-label="Quantity: Patio furniture set"></div></div>
+              </div>
+              <div id="calc-f-hourly" hidden>
+                <label for="calc-f-workers">Workers</label>
+                <select id="calc-f-workers"><option value="1">1 worker</option><option value="2">2 workers</option></select>
+                <label for="calc-f-hours">Hours (2-hour minimum)</label>
+                <input id="calc-f-hours" type="number" min="2" step="0.5" value="2">
+              </div>
             </div>
             <div id="calc-tv" hidden>
               <label for="calc-tv-size">TV size</label>

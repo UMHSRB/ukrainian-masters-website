@@ -5,6 +5,7 @@
     tv:{s:85,m:100,l:120},
     paint:300
   };
+  var MINVISIT=120; // minimum visit for by-item pricing
   var LIMIT=1000; // above this we ask for a call to review the scope
   var el=function(id){return document.getElementById(id);};
   var svc=el('calc-service'); if(!svc) return;
@@ -18,7 +19,26 @@
   function calc(){
     var s=svc.value, total=0, from=false, label='', detail='';
     Object.keys(groups).forEach(function(k){groups[k].hidden=(k!==s);});
-    if(s==='furniture'){
+    var byItem=(el('calc-f-mode').value==='item'); el('calc-f-items').hidden=!byItem; el('calc-f-hourly').hidden=byItem;
+    if(s==='furniture' && el('calc-f-mode').value==='item'){
+      var lo=0,hi=0,plus=false,count=0;
+      document.querySelectorAll('#calc-f-items input').forEach(function(i){
+        var q=Math.max(0,Math.round(parseFloat(i.value)||0)); if(!q) return;
+        count+=q; lo+=q*(+i.dataset.lo); hi+=q*(+i.dataset.hi); if(i.dataset.plus==='1') plus=true;
+      });
+      if(!count){ out.textContent='Add your items'; note.textContent='Enter how many of each piece you need assembled.'; lastText='Hi, I would like a quote for furniture assembly.'; link(); return; }
+      lo=Math.max(lo,MINVISIT); hi=Math.max(hi,MINVISIT);
+      label='Furniture assembly'; detail=count+' item'+(count>1?'s':'');
+      if(hi>LIMIT){
+        out.textContent='Call us to review the job';
+        note.textContent='For larger projects we first go over the scope together, so please call or text.';
+        lastText='Hi, I would like a quote: '+label+' ('+detail+').'; link(); return;
+      }
+      out.textContent=(lo===hi?money(lo):money(lo)+'\u2013'+money(hi))+(plus?'+':'');
+      note.textContent=detail+'. Typical range; the final price depends on the model and difficulty. Minimum visit '+money(MINVISIT)+'.';
+      lastText='Hi, I would like to book: '+label+' ('+detail+'), estimate '+out.textContent+'.';
+      link(); return;
+    } else if(s==='furniture'){
       var w=el('calc-f-workers').value, h=Math.max(num('calc-f-hours',2),RATES.furniture.min);
       total=(w==='2'?RATES.furniture.two:RATES.furniture.one)*h;
       label='Furniture assembly';
