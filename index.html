@@ -296,6 +296,56 @@
         </tbody>
       </table>
       <p class="price-note">Commercial furniture assembly is priced by agreement. Call <a href="tel:+13109164906">(310) 916-4906</a> for a quote on anything not listed.</p>
+      <div class="calc" id="calculator">
+        <h3>Estimate your job</h3>
+        <p class="calc-sub">Pick a service to see a quick estimate.</p>
+        <div class="calc-grid" id="calc-form">
+          <div class="calc-inputs">
+            <label for="calc-service">Service</label>
+            <select id="calc-service">
+              <option value="furniture">Furniture assembly</option>
+              <option value="tv">TV mounting</option>
+              <option value="paint">Interior painting</option>
+              <option value="wallpaper">Wallpaper hanging</option>
+              <option value="other">Something else</option>
+            </select>
+
+            <div id="calc-furniture">
+              <label for="calc-f-workers">Workers</label>
+              <select id="calc-f-workers"><option value="1">1 worker</option><option value="2">2 workers</option></select>
+              <label for="calc-f-hours">Hours (2-hour minimum)</label>
+              <input id="calc-f-hours" type="number" min="2" step="0.5" value="2">
+            </div>
+            <div id="calc-tv" hidden>
+              <label for="calc-tv-size">TV size</label>
+              <select id="calc-tv-size"><option value="s">Up to 55&Prime;</option><option value="m">55&ndash;65&Prime;</option><option value="l">Over 65&Prime;</option></select>
+              <label for="calc-tv-qty">Number of TVs</label>
+              <input id="calc-tv-qty" type="number" min="1" step="1" value="1">
+            </div>
+            <div id="calc-paint" hidden>
+              <label for="calc-rooms">Number of rooms</label>
+              <input id="calc-rooms" type="number" min="1" step="1" value="1">
+            </div>
+            <div id="calc-wallpaper" hidden>
+              <label for="calc-w-workers">Workers</label>
+              <select id="calc-w-workers"><option value="1">1 worker</option><option value="2">2 workers</option></select>
+              <label for="calc-w-hours">Estimated hours</label>
+              <input id="calc-w-hours" type="number" min="1" step="0.5" value="4">
+            </div>
+            <div id="calc-other" hidden><p class="calc-sub">Tell us what you need and we will send a quote.</p></div>
+          </div>
+          <div class="calc-out">
+            <div class="calc-label">Estimate</div>
+            <div class="calc-result" id="calc-result" aria-live="polite">&nbsp;</div>
+            <p class="calc-note" id="calc-note"></p>
+            <div class="calc-actions" id="calc-actions">
+              <a class="btn-primary" href="tel:+13109164906">Call (310) 916-4906</a>
+              <a class="btn-ghost" id="calc-sms" href="sms:+13109164906">Text us</a>
+              <button type="button" class="btn-ghost" id="calc-send">Request this estimate</button>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </section>
@@ -457,5 +507,6 @@
     revealEls.forEach(function(el){ el.classList.add('is-visible'); });
   }
 </script>
+<script src="/calculator.js" defer></script>
 </body>
 </html>
