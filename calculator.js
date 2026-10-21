@@ -85,6 +85,12 @@
     var m=el('message'); if(m){m.value=lastText;}
     var c=el('contact'); if(c){c.scrollIntoView({behavior:'smooth'});}
   }
+  var go=el('calc-go');
+  if(go){go.addEventListener('click',function(){
+    calc();
+    var r=el('calc-result');
+    if(window.matchMedia('(max-width:760px)').matches){r.scrollIntoView({behavior:'smooth',block:'center'});}
+  });}
   svc.addEventListener('change',calc);
   document.querySelectorAll('#calculator input,#calculator select').forEach(function(i){i.addEventListener('input',calc);i.addEventListener('change',calc);});
   el('calc-form').addEventListener('click',function(e){ if(e.target&&e.target.id==='calc-send'){toForm(e);} });
