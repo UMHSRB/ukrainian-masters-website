@@ -15,6 +15,7 @@
   document.addEventListener('submit',function(e){
     var f=e.target; if(!(f&&f.classList&&f.classList.contains('estimate-form'))) return;
     var s=document.getElementById('service'); send('form_submit',{service:s?s.value:''});
+    try{sessionStorage.setItem('um_lead_ts',String(Date.now()));}catch(err){}
     if(!window.fetch||!window.FormData) return;
     e.preventDefault();
     var btn=f.querySelector('button[type=submit],input[type=submit]'); if(btn) btn.disabled=true;
